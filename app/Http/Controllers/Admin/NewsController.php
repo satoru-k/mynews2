@@ -52,10 +52,10 @@ class NewsController extends Controller
       $cond_ttitle = $request->cond_title;
       if ($cond_ttitle != '') {
         //検索されたら検索結果を取得する
-        $posts = News::where('title', $cond_ttitle)->get();
+        $posts = News::where('title', $cond_ttitle)->orderBy('created_at', 'asc')->get();
       } else {
         //それ以外はすべてのニュースを取得する
-        $posts = News::all();
+        $posts = News::all()->sortBy('created_at');
       }
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_ttitle]);
     }
