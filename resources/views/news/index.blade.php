@@ -2,6 +2,7 @@
 
 @section('content')
   <div class="container">
+    <h1>復習</h1>
     <hr color="#c0c0c0">
     @if ($headline != null)
       <div class="row">
@@ -11,7 +12,7 @@
               <div class="caption mx-auto">
                 <div class="image">
                   @if ($headline->image_path)
-                    <img src="{{ asset('storage/image/'.$headline->image_path) }}">
+                    <img src="{{ $headline->image_path }}">
                   @endif
                 </div>
                 <div class="title p-2">
@@ -45,7 +46,7 @@
               </div>
               <div class="image col-md-6 text-right mt-4">
                 @if ($p->image_path)
-                  <img src="{{ asset('storage/image/'.$p->image_path) }}">
+                  <img src="{{ $p->image_path }}">
                 @endif
               </div>
             </div>
